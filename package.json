@@ -1,7 +1,7 @@
 {
-  "name": "fast-json-stringify",
-  "version": "5.8.0",
-  "description": "Stringify your JSON at max speed",
+  "name": "fast-json-stringify-browser",
+  "version": "1.0.0",
+  "description": "Stringify your JSON at max speed - Fork to use in browser",
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
@@ -18,7 +18,7 @@
   "precommit": ["lint", "test"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fastify/fast-json-stringify.git"
+    "url": "git+https://github.com/g4rcez/fast-json-stringify.git"
   },
   "keywords": [
     "json",
@@ -26,12 +26,12 @@
     "schema",
     "fast"
   ],
-  "author": "Matteo Collina <hello@matteocollina.com>",
+  "author": "Matteo Collina <hello@matteocollina.com>, Allan Garcez <allan.f.garcez@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fastify/fast-json-stringify/issues"
+    "url": "https://github.com/g4rcez/fast-json-stringify/issues"
   },
-  "homepage": "https://github.com/fastify/fast-json-stringify#readme",
+  "homepage": "https://github.com/g4rcez/fast-json-stringify#readme",
   "devDependencies": {
     "@fastify/pre-commit": "^2.0.2",
     "@sinclair/typebox": "^0.31.1",
@@ -43,8 +43,7 @@
     "standard": "^17.0.0",
     "tap": "^16.0.1",
     "tsd": "^0.29.0",
-    "webpack": "^5.40.0",
-    "fast-json-stringify": "."
+    "webpack": "^5.40.0"
   },
   "dependencies": {
     "@fastify/deepmerge": "^1.0.0",

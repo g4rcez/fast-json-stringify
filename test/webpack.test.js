@@ -16,7 +16,7 @@ test('the library should work with webpack', async (t) => {
       path: targetdir,
       filename: 'webpacktest.js',
       library: {
-        name: 'fastJsonStringify',
+        name: 'fastJsonStringifyBrowser',
         type: 'umd'
       }
     }

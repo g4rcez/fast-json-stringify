@@ -4,7 +4,16 @@
 
 const merge = require('@fastify/deepmerge')()
 const clone = require('rfdc')({ proto: true })
-const { randomUUID } = require('node:crypto')
+
+const self = window.self
+const randomUUID = () => {
+  if (typeof self !== 'undefined' && self.crypto && self.crypto.randomUUID) return self.crypto.randomUUID()
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0
+    const v = c === 'x' ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
 
 const validate = require('./lib/schema-validator')
 const Serializer = require('./lib/serializer')
@@ -173,12 +182,6 @@ function build (schema, options) {
 
   /* eslint no-new-func: "off" */
   const contextFunc = new Function('validator', 'serializer', contextFunctionCode)
-
-  if (options.mode === 'standalone') {
-    const buildStandaloneCode = require('./lib/standalone')
-    return buildStandaloneCode(contextFunc, context, serializer, validator)
-  }
-
   return contextFunc(validator, serializer)
 }
 
